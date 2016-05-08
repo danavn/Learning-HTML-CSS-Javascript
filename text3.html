@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+</style>
+</head>
+<body onload="initial()">
+
+<h1>Text</h1>
+<h2 id="color" onclick="color()">Color:</h2>
+<p id="colorSyntax"></p>
+<p id="colorResult"></p>
+<div id="colorInput">
+Change Color: <input type="text" value="" id="choice">
+<input type="button" value="Submit" onclick="changeColor()">
+</div>
+<h2 id="font" onclick="fontArial()">Font Family:</h2><p id="fontFamilySyntax"></p><p id="fontFamilyResult"></p>
+<div id="fontFamilyInput">
+ Font Family:<select id="fontFamilyList">
+    <option value="Times New Roman">Times New Roman</option>
+    <option value="Arial" selected>Arial</option>
+    <option value="Helvetica">Helvetica</option>
+    <option value="Georgia">Georgia</option>
+ </select>
+<input type="button" value="Change" onclick="changeFontFamily()">
+</div>
+
+<h2>Decoration:</h2>
+<h2>Alignment:</h2>
+
+<script>
+	function initial(){ 
+		 document.getElementById("choice").text = "";
+		 document.getElementById("colorInput").style.display = "none";
+		 document.getElementById("fontFamilyInput").style.display = "none";
+	}
+	function color(){
+		 var x = document.getElementById("colorSyntax");
+    		 x.innerHTML = "color: green"
+    		 x.style.border = "thick solid black"; 
+	         x.style.fontStyle = "italic";  
+                 x.style.fontWeight = "bold";
+
+    	         var y = document.getElementById("colorResult");
+    	         y.innerHTML = "this text has this color: green";
+    		 y.style.color = "green";  
+		 
+		 document.getElementById("colorInput").style.display = "block";
+
+	
+	}
+	
+	function changeColor(){ 
+		var x = document.getElementById("choice").value;
+		document.getElementById("colorSyntax").innerHTML = "color: " + x;
+          
+		var y = document.getElementById("colorResult");
+    	        y.innerHTML = "this text has this color: " + x;
+    		y.style.color = x;  
+
+	}
+	function fontArial() { 
+		//write out the syntax to show to students
+		var y = document.getElementById("fontFamilySyntax");
+
+		y.innerHTML = "font-family: Arial";
+                y.style.border = "thick solid black";
+                y.style.fontStyle = "italic";  
+                y.style.fontWeight = "bold";
+
+		//now show the result of the syntax out
+    		var z = document.getElementById("fontFamilyResult");
+       	        z.innerHTML = "this text has font Arial"; 
+	        z.style.fontFamily = "Arial";
+
+    	        document.getElementById("fontFamilyInput").style.display = "block";
+	}
+	function changeFontFamily(){ 
+		//Get font family value
+		var objFF = document.getElementById("fontFamilyList");
+    		var x = "" // document.getElementById("fontFamilyResult")
+                x = objFF.options[objFF.selectedIndex].text;
+	
+		//write out the syntax to show to students
+		var y = document.getElementById("fontFamilySyntax");
+
+    	      	
+
+		
+                y.style.border = "thick solid black";
+                y.style.fontStyle = "italic";  
+                y.style.fontWeight = "bold";
+
+		//now show the result of the syntax out
+    		var z = document.getElementById("fontFamilyResult");
+       	       
+		var patt = /\s/;
+		var res = patt.test(x);
+
+                if (res == true) { 
+	            z.style.fontFamily = '"' + x + '"';
+	            y.innerHTML = 'font-family: "' + x + '"';	
+		    z.innerHTML = 'this text has font "' + x + '".'; 
+	        }
+               else {
+                    z.style.fontFamily = x; 
+		    y.innerHTML = "font-family: " + x;
+                    z.innerHTML = "this text has font " + x; 
+               }
+ 
+
+	     
+	}
+	
+</script>
+</body>
