@@ -5,6 +5,7 @@ body {
 
 
 #wrapper { 
+     min-height: calc(100vh - 47px);
      max-width: 940px;
      margin: 0 auto;
      padding: 0 5%;
@@ -113,7 +114,7 @@ footer {
      font-size: 0.75em;
      text-align: center;
      clear: both; /* to keep footer section on a separate line/section */
-     padding-top: 50px;
+     /*padding-top: 50px;*/
      color: #ccc;
 }
 
